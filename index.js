@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs") ;
 app.get('/', async (req, res) => {
+    try{
     const options = {
   method: 'GET',
   url: 'https://dad-jokes.p.rapidapi.com/random/joke',
@@ -37,6 +38,14 @@ axios.request(options).then(function (response) {
     // var ln = "Chan";
     // const text = await giveMeAJoke.getCustomJoke (fn, ln )
     // console.log(text)
+}
+catch(
+    error
+){
+    return res.json({error: error.message, 
+    message : "server error"
+    })
+}
 })
 
 app.listen(port, () =>   {
