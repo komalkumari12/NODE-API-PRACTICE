@@ -11,7 +11,7 @@ app.get('/', async (req, res) => {
   method: 'GET',
   url: 'https://dad-jokes.p.rapidapi.com/random/joke',
   headers: {
-    'X-RapidAPI-Key': '38629c038cmsh196699fde78452ep1a94f6jsn098a6d621316',
+    'X-RapidAPI-Key': '108d301970msh68dbe6d39fbf202p1139ddjsn6eb50b9aa735',
     'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com'
   }
 };
@@ -42,6 +42,7 @@ axios.request(options).then(function (response) {
 catch(
     error
 ){
+    console.log(error.message)
     return res.json({error: error.message, 
     message : "server error"
     })
